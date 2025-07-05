@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éclat | Salón de Belleza en Altamira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff9f7;
+        }
+        .script-font {
+            font-family: 'Dancing Script', cursive;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 230, 230, 0.8) 0%, rgba(255, 255, 255, 0) 90%);
+        }
+        .polaroid {
+            background: white;
+            padding: 15px 15px 60px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        .polaroid:after {
+            content: '';
+            display: block;
+            position: absolute;
+            width: 90%;
+            height: 10px;
+            bottom: 15px;
+            left: 5%;
+            background: rgba(0,0,0,0.1);
+            filter: blur(5px);
+            z-index: -1;
+        }
+        .service-card {
+            transition: all 0.3s ease;
+            background: linear-gradient(to bottom, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(233, 182, 172, 0.3);
+        }
+        .before-after {
+            position: relative;
+            overflow: hidden;
+        }
+        .before-after img {
+            transition: all 0.5s ease;
+        }
+        .before-after:hover img {
+            transform: scale(1.05);
+        }
+        .before-after:before {
+            content: 'ANTES';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255,255,255,0.7);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            color: #d4a373;
+        }
+        .before-after:nth-child(even):before {
+            content: 'DESPUÉS';
+            color: #a5a58d;
+        }
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body class="text-beige-900">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white bg-opacity-90 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-3xl script-font text-rose-300">Éclat</div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#servicios" class="hover:text-rose-300 transition">Servicios</a>
+                <a href="#galeria" class="hover:text-rose-300 transition">Galería</a>
+                <a href="#nosotros" class="hover:text-rose-300 transition">Nosotras</a>
+                <a href="#testimonios" class="hover:text-rose-300 transition">Testimonios</a>
+                <a href="#contacto" class="hover:text-rose-300 transition">Contacto</a>
+            </nav>
+            <button class="md:hidden text-rose-300">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-5xl md:text-6xl script-font text-rose-300 mb-6">Brilla con tu belleza única</h1>
+                <p class="text-xl mb-8 text-gray-600">En Éclat, transformamos tu rutina de belleza en una experiencia de lujo en el corazón de Altamira.</p>
+                <div class="flex space-x-4">
+                    <a href="#reserva" class="bg-rose-300 hover:bg-rose-400 text-white px-8 py-3 rounded-full font-medium transition shadow-lg hover:shadow-xl">Reserva ahora</a>
+                    <a href="#servicios" class="border-2 border-rose-300 text-rose-300 hover:bg-rose-50 px-8 py-3 rounded-full font-medium transition">Nuestros servicios</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 relative">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl" style="background-color: #f8e2e1;">
+                        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Maquillaje profesional" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-bold">Maquillaje</h3>
+                            <p class="text-sm">Profesional</p>
+                        </div>
+                    </div>
+                    <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl" style="background-color: #f5e6cc;">
+                        <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Corte de pelo" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-bold">Estilismo</h3>
+                            <p class="text-sm">Personalizado</p>
+                        </div>
+                    </div>
+                    <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl" style="background-color: #e8d5d4;">
+                        <img src="https://images.unsplash.com/photo-1620655269191-3f0a443a8068?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tratamiento facial" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-bold">Faciales</h3>
+                            <p class="text-sm">Premium</p>
+                        </div>
+                    </div>
+                    <div class="relative h-64 rounded-2xl overflow-hidden shadow-xl" style="background-color: #f3e0e9;">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Uñas decoradas" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30"></div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <h3 class="font-bold">Manicure</h3>
+                            <p class="text-sm">Artístico</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute -top-10 -left-10 w-24 h-24 bg-rose-100 rounded-full opacity-70"></div>
+                <div class="absolute -bottom-10 -right-10 w-32 h-32 bg-amber-100 rounded-full opacity-70"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl script-font text-rose-300 mb-4">Nuestros servicios</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Descubre nuestra gama de servicios premium diseñados para realzar tu belleza natural</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Servicio 1 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Corte y peinado" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-cut"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Corte & Peinado</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Transforma tu look con nuestros cortes personalizados y peinados de última tendencia.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $450</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Maquillaje profesional" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Maquillaje Profesional</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Desde looks naturales hasta maquillaje de fiesta o novias, realzamos tus mejores facciones.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $600</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1608248543803-ba7a9a4787a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Tratamientos faciales" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Tratamientos Faciales</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Rejuvenece tu piel con nuestros tratamientos premium utilizando productos de alta gama.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $800</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 4 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Manicure y pedicure" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-hand-sparkles"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Manicure & Pedicure</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Dale a tus manos y pies el cuidado que merecen con nuestros servicios de belleza.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $350</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 5 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Coloración profesional" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-fill-drip"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Coloración Profesional</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Tintes, mechas, balayage y más, utilizando productos que cuidan tu cabello.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $900</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Servicio 6 -->
+                <div class="service-card rounded-2xl overflow-hidden shadow-md border border-rose-50">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Depilación" class="w-full h-full object-cover transition duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-10 h-10 rounded-full bg-rose-100 flex items-center justify-center text-rose-300 mr-3">
+                                <i class="fas fa-feather-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Depilación Premium</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Técnicas avanzadas para una depilación suave y duradera en todas las zonas del cuerpo.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-rose-300 font-bold">Desde $300</span>
+                            <button class="text-rose-300 hover:text-rose-400 transition">
+                                <i class="fas fa-plus-circle text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Antes/Después -->
+    <section id="galeria" class="py-20 bg-rose-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl script-font text-rose-300 mb-4">Transformaciones</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Descubre los increíbles resultados que hemos logrado para nuestras clientas</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Transformación 1 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583864697784-a0ef4b2f3eaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 1" class="w-full h-80 object-cover">
+                </div>
+                
+                <!-- Transformación 2 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583947581924-860bda6f26dd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 2" class="w-full h-80 object-cover">
+                </div>
+                
+                <!-- Transformación 3 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583947581924-c9c0af6d62d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 3" class="w-full h-80 object-cover">
+                </div>
+                
+                <!-- Transformación 4 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583947581924-0a6a1a0a0a0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 4" class="w-full h-80 object-cover">
+                </div>
+                
+                <!-- Transformación 5 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583947581924-0a6a1a0a0a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 5" class="w-full h-80 object-cover">
+                </div>
+                
+                <!-- Transformación 6 -->
+                <div class="before-after rounded-xl overflow-hidden shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1583947581924-0a6a1a0a0a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Antes y después 6" class="w-full h-80 object-cover">
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-rose-300 hover:bg-rose-400 text-white px-8 py-3 rounded-full font-medium transition shadow-lg hover:shadow-xl">Ver más transformaciones</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conócenos -->
+    <section id="nosotros" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl script-font text-rose-300 mb-4">Conoce a nuestro equipo</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Profesionales apasionadas por la belleza y el cuidado personal</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Miembro 1 -->
+                <div class="text-center">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-100 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Ana Martínez" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rose-300 to-transparent opacity-20"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">Ana Martínez</h3>
+                    <p class="text-rose-300 mb-3">Directora & Estilista</p>
+                    <p class="text-gray-600">Con más de 15 años de experiencia en el mundo de la belleza, Ana es especialista en cortes y coloración.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Miembro 2 -->
+                <div class="text-center">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-100 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Lucía Ramírez" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rose-300 to-transparent opacity-20"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">Lucía Ramírez</h3>
+                    <p class="text-rose-300 mb-3">Maquillista Profesional</p>
+                    <p class="text-gray-600">Especialista en maquillaje de novias y eventos, Lucía tiene un talento único para realzar la belleza natural.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Miembro 3 -->
+                <div class="text-center">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-100 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="María González" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rose-300 to-transparent opacity-20"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">María González</h3>
+                    <p class="text-rose-300 mb-3">Experta en Tratamientos</p>
+                    <p class="text-gray-600">Con certificaciones internacionales, María ofrece los tratamientos faciales más avanzados y efectivos.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Miembro 4 -->
+                <div class="text-center">
+                    <div class="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-rose-100 shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Sofía López" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-rose-300 to-transparent opacity-20"></div>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-1">Sofía López</h3>
+                    <p class="text-rose-300 mb-3">Manicurista & Pedicurista</p>
+                    <p class="text-gray-600">Artista de uñas con un ojo excepcional para el diseño, Sofía crea verdaderas obras de arte en tus manos.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-rose-300 hover:text-rose-400"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-20 bg-amber-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl script-font text-rose-300 mb-4">Lo que dicen nuestras clientas</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">Experiencias reales de mujeres que han confiado en nosotros</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonio 1 -->
+                <div class="polaroid relative">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-4 border-rose-100 absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Cliente 1" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-10 pb-6 px-4">
+                        <div class="flex justify-center mb-2 text-amber-300">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-4">"El mejor salón de belleza en Altamira. Ana hizo magia con mi cabello, ¡nunca me había sentido tan guapa!"</p>
+                        <p class="font-semibold">Valeria S.</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 2 -->
+                <div class="polaroid relative">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-4 border-rose-100 absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <img src="https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Cliente 2" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-10 pb-6 px-4">
+                        <div class="flex justify-center mb-2 text-amber-300">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-4">"Lucía hizo mi maquillaje de novia y fue perfecto. Duradero, fotogénico y justo como lo soñé. ¡Gracias!"</p>
+                        <p class="font-semibold">Daniela M.</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonio 3 -->
+                <div class="polaroid relative">
+                    <div class="w-16 h-16 rounded-full overflow-hidden border-4 border-rose-100 absolute -top-8 left-1/2 transform -translate-x-1/2">
+                        <img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Cliente 3" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pt-10 pb-6 px-4">
+                        <div class="flex justify-center mb-2 text-amber-300">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p class="text-gray-600 italic mb-4">"Sofía es una artista con las uñas. Siempre innovando con diseños únicos que recibo muchos cumplidos."</p>
+                        <p class="font-semibold">Carolina R.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserva -->
+    <section id="reserva" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-rose-50 rounded-2xl overflow-hidden shadow-xl">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-10 bg-rose-100 flex flex-col justify-center">
+                        <h2 class="text-3xl script-font text-rose-300 mb-6">Reserva tu cita</h2>
+                        <p class="text-gray-600 mb-6">Completa el formulario y nos pondremos en contacto contigo para confirmar tu cita.</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-300 mr-4">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Llámanos</p>
+                                    <p class="font-semibold">+58 412 555 1234</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-300 mr-4">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Escríbenos</p>
+                                    <p class="font-semibold">hola@eclatbelleza.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-rose-300 mr-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500">Visítanos</p>
+                                    <p class="font-semibold">Av. Principal de Altamira, CC Altamira Plaza, Nivel 2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-10">
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-600 mb-2">Nombre completo</label>
+                                <input type="text" class="w-full px-4 py-2 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-300">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-600 mb-2">Teléfono</label>
+                                <input type="tel" class="w-full px-4 py-2 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-300">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-600 mb-2">Correo electrónico</label>
+                                <input type="email" class="w-full px-4 py-2 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-300">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="block text-gray-600 mb-2">Servicio de interés</label>
+                                <select class="w-full px-4 py-2 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-300">
+                                    <option>Corte y peinado</option>
+                                    <option>Maquillaje profesional</option>
+                                    <option>Tratamientos faciales</option>
+                                    <option>Manicure & Pedicure</option>
+                                    <option>Coloración profesional</option>
+                                    <option>Depilación premium</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label class="block text-gray-600 mb-2">Fecha preferida</label>
+                                <input type="date" class="w-full px-4 py-2 rounded-lg border border-rose-200 focus:outline-none focus:ring-2 focus:ring-rose-300">
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-rose-300 hover:bg-rose-400 text-white px-6 py-3 rounded-lg font-medium transition shadow-lg hover:shadow-xl">Solicitar reserva</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram -->
+    <section id="instagram" class="py-20 bg-rose-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl script-font text-rose-300 mb-4">Síguenos en Instagram</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">@eclatbelleza</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-2">
+                <!-- Instagram post 1 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Instagram post 2 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Instagram post 3 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba7a9a4787a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Instagram post 4 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Instagram post 5 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+                
+                <!-- Instagram post 6 -->
+                <div class="relative group overflow-hidden rounded-lg">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Instagram post" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rose-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo y descripción -->
+                <div>
+                    <h3 class="text-3xl script-font text-rose-200 mb-4">Éclat</h3>
+                    <p class="text-rose-100 mb-4">Tu salón de belleza premium en Altamira. Donde la elegancia se encuentra con la innovación.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-rose-200 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-rose-200 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-rose-200 hover:text-white transition"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" class="text-rose-200 hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Horario -->
+                <div>
+                    <h4 class="text-lg font-semibold text-rose-200 mb-4">Horario</h4>
+                    <ul class="space-y-2">
+                        <li class="flex justify-between">
+                            <span class="text-rose-100">Lunes - Viernes</span>
+                            <span>9:00 AM - 7:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-rose-100">Sábados</span>
+                            <span>9:00 AM - 5:00 PM</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span class="text-rose-100">Domingos</span>
+                            <span>Cerrado</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Enlaces rápidos -->
+                <div>
+                    <h4 class="text-lg font-semibold text-rose-200 mb-4">Enlaces rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#servicios" class="hover:text-rose-200 transition">Servicios</a></li>
+                        <li><a href="#galeria" class="hover:text-rose-200 transition">Galería</a></li>
+                        <li><a href="#nosotros" class="hover:text-rose-200 transition">Nuestro equipo</a></li>
+                        <li><a href="#testimonios" class="hover:text-rose-200 transition">Testimonios</a></li>
+                        <li><a href="#reserva" class="hover:text-rose-200 transition">Reservas</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contacto -->
+                <div>
+                    <h4 class="text-lg font-semibold text-rose-200 mb-4">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-rose-200 mt-1 mr-3"></i>
+                            <span>Av. Principal de Altamira, CC Altamira Plaza, Nivel 2</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-rose-200 mr-3"></i>
+                            <span>+58 412 555 1234</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-rose-200 mr-3"></i>
+                            <span>hola@eclatbelleza.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-rose-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-rose-200 mb-4 md:mb-0">© 2023 Éclat Belleza. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-rose-200 hover:text-white transition">Política de privacidad</a>
+                    <a href="#" class="text-rose-200 hover:text-white transition">Términos de servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <a href="#" class="w-16 h-16 rounded-full bg-green-500 flex items-center justify-center text-white text-2xl shadow-xl hover:bg-green-600 transition floating-icon">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Simple script for mobile menu toggle (would need proper implementation)
+        document.querySelector('button').addEventListener('click', function() {
+            document.querySelector('nav').classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
