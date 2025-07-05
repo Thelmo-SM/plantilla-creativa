@@ -81,25 +81,65 @@
             50% { transform: translateY(-10px); }
             100% { transform: translateY(0px); }
         }
+
+        @keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s ease-out;
+}
+
     </style>
 </head>
 <body class="text-beige-900">
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white bg-opacity-90 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-3xl script-font text-rose-300">Éclat</div>
-            <nav class="hidden md:flex space-x-8">
-                <a href="#servicios" class="hover:text-rose-300 transition">Servicios</a>
-                <a href="#galeria" class="hover:text-rose-300 transition">Galería</a>
-                <a href="#nosotros" class="hover:text-rose-300 transition">Nosotras</a>
-                <a href="#testimonios" class="hover:text-rose-300 transition">Testimonios</a>
-                <a href="#contacto" class="hover:text-rose-300 transition">Contacto</a>
-            </nav>
-            <button class="md:hidden text-rose-300">
-                <i class="fas fa-bars text-2xl"></i>
-            </button>
-        </div>
-    </header>
+<header class="fixed w-full z-50 bg-white bg-opacity-90 shadow-sm">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <div class="text-3xl script-font text-rose-300">Éclat</div>
+
+    <!-- Navegación desktop -->
+    <nav class="hidden md:flex space-x-8">
+      <a href="#servicios" class="hover:text-rose-300 transition">Servicios</a>
+      <a href="#galeria" class="hover:text-rose-300 transition">Galería</a>
+      <a href="#nosotros" class="hover:text-rose-300 transition">Nosotras</a>
+      <a href="#testimonios" class="hover:text-rose-300 transition">Testimonios</a>
+      <a href="#contacto" class="hover:text-rose-300 transition">Contacto</a>
+    </nav>
+
+    <!-- Botón menú móvil -->
+    <button id="menu-toggle" class="md:hidden text-rose-300 focus:outline-none">
+      <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <svg id="close-icon" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil animado -->
+  <nav id="mobile-menu"
+    class="hidden md:hidden flex flex-col items-start bg-white px-6 pb-4 pt-2 space-y-3 animate-slide-down">
+    <a href="#servicios" class="text-gray-700 hover:text-rose-300 transition">Servicios</a>
+    <a href="#galeria" class="text-gray-700 hover:text-rose-300 transition">Galería</a>
+    <a href="#nosotros" class="text-gray-700 hover:text-rose-300 transition">Nosotras</a>
+    <a href="#testimonios" class="text-gray-700 hover:text-rose-300 transition">Testimonios</a>
+    <a href="#contacto" class="text-gray-700 hover:text-rose-300 transition">Contacto</a>
+  </nav>
+</header>
 
     <!-- Hero Section -->
     <section class="hero-pattern pt-32 pb-20">
@@ -709,22 +749,38 @@
         </a>
     </div>
 
-    <script>
-        // Simple script for mobile menu toggle (would need proper implementation)
-        document.querySelector('button').addEventListener('click', function() {
-            document.querySelector('nav').classList.toggle('hidden');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    menuIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  });
+
+  // Cierra menú al hacer clic en un enlace
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+      menuIcon.classList.remove('hidden');
+      closeIcon.classList.add('hidden');
+    });
+  });
+
+  // Scroll suave
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+
 </body>
 </html>
